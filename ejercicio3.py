@@ -42,3 +42,14 @@ var_dict.pop('altura')
 print("el nombre es " + var_dict["nombre"] + " y su edad es de "+ str(var_dict["edad"]) + " años")
 print(var_dict)
 '''
+
+var_r1 = range(0,100)
+var_r2 = range(20,100)
+
+print(var_r1)
+print(var_r2)
+print(len(var_r1))
+print(len(var_r2))
+
+texto = "Ciclo 1, fundamentos de programación"
+print(len(texto))
