@@ -20,6 +20,20 @@ def crear(tareas : dict, i : str, nt : dict):
     tareas[i] = nt
     return tareas
 
+def leer(tareas : dict):
+    print('\n Listar las tareas pendientes \n')
+    for idd, info in tareas.items():
+        print('\n', idd,' - ', end='\n')
+        for nombre_a,atributo in info.items():
+            print(atributo,', ',end='')
+
+def verificarElemento(identificador, tareas):
+    conjuntoIdentificadores = set(tareas.keys())
+    if identificador in conjuntoIdentificadores:
+        return True
+    else:
+        return False
+
 opcion = 0
 while opcion != 5:
     print('\n --- Aplicación CRUD tareas pendientes --- \n')
@@ -32,7 +46,7 @@ while opcion != 5:
     opcion = int(input('Ingrese una opcion: '))
 
     if opcion == 1:
-        print('\n Agregar una nueva tarea')
+        print('\n Agregar una nueva tarea \n')
 
         identificador = str(input('Ingrese el identificador de la tarea '))
         descripcion = str(input('Ingrese la descripcion de la tarea '))
@@ -48,10 +62,28 @@ while opcion != 5:
         crear(tareas,identificador,nuevaTarea)
 
     elif opcion == 2:
-        pass
+        leer(tareas)
     elif opcion == 3:
-        pass
+        print('\n Editar una nueva tarea \n')
+        identificador = str(input('Ingrese el identificador de la tarea para modificar: '))
+        if verificarElemento(identificador,tareas):
+            nuevaDescripcion = str(input('Nueva descripción'))
+            if nuevaDescripcion:
+                tareas[identificador]['descripcion'] = nuevaDescripcion
+            nuevoEstado = str(input('Nuevo estado'))
+            if nuevoEstado:
+                tareas[identificador]['estado'] = nuevoEstado
+            nuevoTiempo = input('Nuevo tiempo')
+            if nuevoTiempo:
+                tareas[identificador]['tiempo'] = int(nuevoTiempo)
+        else:
+            print('No ha sido encontrada la tarea')    
     elif opcion == 4:
-        pass
+        print('\n Elimiar una nueva tarea \n')
+        identificador = str(input('Ingrese el identificador de la tarea a eliminar: '))
+        if verificarElemento(identificador,tareas):
+            tareas.pop(identificador)
+        else:
+            print('No se encuentra la tarea para eliminar.')
 
 print(tareas)
