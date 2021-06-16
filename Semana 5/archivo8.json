@@ -1,0 +1,25 @@
+{
+    "clientes": [
+        {
+            "pr_nombre": "Juna",
+            "sg_nombre": "Clara",
+            "edad": 27,
+            "salario": 7.17
+        },
+        {
+            "pr_nombre": "Roberto",
+            "sg_nombre": "Luis",
+            "edad": 31,
+            "salario": [
+                1.9,
+                5.5
+            ]
+        },
+        {
+            "pr_nombre": "Teodoro",
+            "sg_nombre": "Jaimes",
+            "edad": 36,
+            "salario": 1.11
+        }
+    ]
+}
